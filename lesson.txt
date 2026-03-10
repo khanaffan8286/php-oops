@@ -1,6 +1,100 @@
 PHP OOPS 
-1. OOP IS A WAY OF THINKING ABOUT AND ORGANIZING THE CODE FOR MAXMIMUM RESULIBLITY.
+1. OOP IS A WAY OF THINKING ABOUT AND ORGANIZING THE CODE FOR MAXMIMUM RESULIBLITY.  
 
 2. OOP HELP TO KEEP CODE DRY (DO NOT REPEAT ) AND MAKES CODE EASIER TO MAINTAIN DEBUG AND MODIFY.
 
 3. OOP CAN BE EASY TO UPGRADE FROM SMALL TO BIG PROJECT.
+
+-> preincrement ++a incremnt then return $a= 5 ++$a  return value 6
+-> postincrement a++ return then increment $a= 5 $a++ return value 5
+
+4. syntax :: {}-> this is called scope , $-> it store the object
+
+<?php
+class Myclass{
+    function showmsg(){
+        echo "this is oop concept";
+    }
+}
+
+$obj = new Myclass();
+
+$obj->showmsg();
+?>
+
+
+5. $this keyword
+In PHP Object-Oriented Programming (OOP), the $this keyword is a pseudo-variable that acts as a pointer to the current object instance.
+
+<?php
+class Myclass{
+    public $a=5;
+    function showvalue(){
+        return $this->a;
+    }
+}
+
+$obj = new Myclass();
+echo $obj->showvalue();
+?>
+
+6. In PHP, constructors and destructors are special "magic methods" that automatically trigger at the beginning and end of an object's lifecycle. They handle the "setup" and "cleanup" of your objects.
+
+class Car {
+    public $brand;
+    public $color;
+
+    // The constructor runs as soon as 'new Car()' is called
+    public function __construct($brand, $color) {
+        $this->brand = $brand;
+        $this->color = $color;
+        echo "The $brand car is being built!<br>";
+    }
+}
+
+$myCar = new Car("Toyota", "Red"); 
+// Output: The Toyota car is being built!
+
+
+class Database {
+    public function __construct() {
+        echo "Connection opened.<br>";
+    }
+
+    public function __destruct() {
+        echo "Connection closed automatically.<br>";
+    }
+}
+
+$db = new Database();
+// At the end of the script, "Connection closed automatically" will print.
+
+Modifires
+
+public: Accessible everywhere. The child inherits these and can use them freely.
+
+protected: This is the "inheritance favorite." It is private to the outside world, but accessible to any class that extends the parent.
+
+private: These are "locked" in the parent. Even if a child extends the parent, it cannot see or use private properties/methods.
+
+
+
+7. Inheritance is the mechanism of one class aquires the method and function of another class (the Parent or Base Class)
+
+class Employee {
+    protected $salary = 3000;
+
+    public function getDetails() {
+        return "Base Salary: $" . $this->salary;
+    }
+}
+
+class Manager extends Employee {
+    private $bonus = 1000;
+
+    // Overriding the method
+    public function getDetails() {
+        // We use parent:: to get the original string, then add to it
+        return parent::getDetails() . " + Bonus: $" . $this->bonus;
+    }
+}
