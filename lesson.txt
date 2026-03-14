@@ -98,3 +98,23 @@ class Manager extends Employee {
         return parent::getDetails() . " + Bonus: $" . $this->bonus;
     }
 }
+
+
+8. Encapsulation is binding the data and methods in a class and controlling them through access modifier ( public private protected)
+ex : Think of a car's engine. You don't need to know how the engine works internally - you just press the gas pedal to make it go faster. The engine's complex parts are "hidden" from you.
+ex:    class BankAccount {
+                        private bankbalnce = 12000;
+          public function deposit (){}
+
+9. Abstraction hidding the complex implementaion details and showing the essintial feature only.
+you know what it does but not nessory to know how its does 
+ex: you chanegs the channnel using tv remote you know channel changes but how you don't need to know.
+abstract class Vehicle {
+    abstract public function start(); // Must be implemented by child classes
+    
+    public function stop() {
+        echo "Vehicle stopped";
+    }
+}
+
+
