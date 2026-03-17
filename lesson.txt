@@ -117,4 +117,40 @@ abstract class Vehicle {
     }
 }
 
+10. Interface it is used to inherite the multiple class in one single class in the interface we can't use constructor deconstructer 
+    we can only define the function name and need to use in the inherte class other wise it will call the error we can not use the other 
+    modifers property in that only public can use in this.
+
+Syntax:
+
+<?php
+interface inter1{
+    public function sum();
+}
+interface inter2 {
+    public function sum2();
+}
+interface inter3 {
+    public function sum3();
+}
+class child implements inter1,inter2,inter3 {
+    public function sum(){
+        echo "2";
+    }
+    public function sum2(){
+        echo"3";
+    }
+    public function sum3(){
+        echo"4";
+    }
+}
+
+$obj = new child();
+$obj->sum();
+$obj->sum2();
+$obj->sum3();
+?>
+
+
+
 
