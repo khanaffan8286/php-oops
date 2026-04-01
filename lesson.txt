@@ -152,5 +152,68 @@ $obj->sum3();
 ?>
 
 
+11. static member is used to access a value or function directly then we use static mehtod without creating object of that class.
+    In function we use self::  and for object instend we use :: directly
+
+
+syntax: 
+   
+class abc {
+    public static $value= "affan";
+    public static function show(){
+        echo "staic function";
+    }
+    public function __construct(){
+        echo self::$value="praful";
+    }
+}
+
+echo abc::$value;
+
+abc::show();
+
+$obj = new abc();
+
+
+12. Trait is used to reduce the limitation of single inhertance. 
+
+trait Sharable {
+    public function share($platform) {
+        echo "Sharing item on $platform...";
+    }
+}
+
+class Post {
+    use Sharable; // The class now has the share() method
+}
+
+class Photo {
+    use Sharable; // This class also has it!
+}
+
+$post = new Post();
+$post->share("Twitter");
+
+13. Magic method are WE starting from __ like __construct __deconstruct
+ same we having 
+
+i. autoload it is use to load to file and class and function of the project that means we don't need to write the require every time to access multiple files.
+
+public function __autoload($class){
+                require $class.".php";    
+            }
+
+ii. invoke is used to run object directly without writing like $obj->function name like this 
+
+class Greeter {
+    public function __invoke($name) {
+        return "Hello, $name!";
+    }
+}
+
+$sayHello = new Greeter();
+
+// Calling the object as a function
+echo $sayHello("John"); // Outputs: Hello, John!
 
 
