@@ -1,1 +1,77 @@
+SOLID is not a design pattern.
+
+It is 5 principle for writting the code.
+
+1. SRP -> SINGLE RESPONSIBLILTY PRINCIPLE
+
+A CLASS HAVING ONE REASON TO CHANGE
+ONE CLASS SHOULD HAVE ONE RESPOSIBILITY 
+
+ONE CLASS = ONE JOB 
+
+EXAMPLE:
+         WRONG : ORDERCONTOLLER : VALIDATE + SAVE + EMAIL + PAYMENT
+         RIGHT : ORDERSERVICE : ONLY HANDLE THE LOGIC 
+
+WHY : EASY TO HANLDE CHANGE DEBUG
+
+CORRECT WAY : ORDERCONTOLLER -> StoreOrderRequest,ORDERREPORTING,EMAILSERVICE,PAYMENTSERVICE.
+
+2. OPEN/CLOSED PRINCIPLE
+
+OPEN/CLOSED PRINCIPLE MEANS A SOFTWARE SHOULD IS OPEN FOR EXTENSION AND CLOSED FOR MODIFICATION
+WE SHOULD ADD A NEW CODE WITHOUT CHANGING THE OLD CODE 
+
+WHY IMPORTENT
+NO RISK OF BREAKING THE OLD CODE 
+IMPROVE MAINTIBILTY 
+SCALABLE ARCHITECURE
+EASY TO ADD NEW FEATURE
+
+BAD EXAPMLE 
+
+class PaymentMethod
+    {
+      public function pay(){
+              if ( $method == paypal){
+                // paypal logic}
+              elseif ($method == stripe){
+                // stripe logic }
+               }
+    }
+
+
+CORRECT EXAPMLE 
+
+interface PaymentInterface
+{
+    public function pay();
+}
+
+class PaypalPayment implements PaymentInterface
+{
+    public function pay()
+    {
+        // paypal payment
+    }
+}
+
+class StripePayment implements PaymentInterface
+{
+    public function pay()
+    {
+        // stripe payment
+    }
+}
+
+class PaymentService
+{
+    public function process(PaymentInterface $payment)
+    {
+        $payment->pay();
+    }
+}
+
+
+
 
