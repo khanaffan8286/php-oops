@@ -73,5 +73,94 @@ class PaymentService
 }
 
 
+3 . LISKOV SUBSTITUTION PRINCIPLE -> OBJECT OF A CHILD CLASS SHOULD BE REPLACABLE WITH THE OBJECT OF THE PARENT CLASS WITHOUT BREAKING THE CODE.
+
+
+Meaning:
+
+child class must properly follow parent behavior
+no unexpected behavior
+inheritance should not break logic
+
+Bad Example (LSP Violation)
+
+class Bird
+{
+    public function fly()
+    {
+        return "Flying";
+    }
+}
+
+class Ostrich extends Bird
+{
+    public function fly()
+    {
+        throw new Exception("Ostrich cannot fly");
+    }
+}
+
+Correct Example
+
+interface Bird
+{
+    public function move();
+}
+class Sparrow implements Bird
+{
+    public function move()
+    {
+        return "Flying";
+    }
+}
+class Ostrich implements Bird
+{
+    public function move()
+    {
+        return "Running";
+    }
+}
+
+4. INTERFACE SEGREGATION PRINCIPLE -> CLIENT DO NOT USE UNWANTED METHOD THAT THEY NOT USE.
+
+BAD EXAMPLE
+
+interface PaymentInterface
+{
+    public function pay();
+    public function refund();
+    public function cancel();
+    public function verify();
+}
+
+
+Correct Example
+
+Split interfaces.
+
+interface PayInterface
+{
+    public function pay();
+}
+interface RefundInterface
+{
+    public function refund();
+}
+interface VerifyInterface
+{
+    public function verify();
+}
+
+Now classes only implement what they need.
+
+class StripePayment implements PayInterface, RefundInterface, VerifyInterface
+{
+    //
+}
+
+
+
+
+
 
 
