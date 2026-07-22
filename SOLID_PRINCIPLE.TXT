@@ -162,5 +162,5 @@ class StripePayment implements PayInterface, RefundInterface, VerifyInterface
 
 5. D — Dependency Inversion Principle (DIP)
 
-Depend on interfaces/abstractions, not concrete classes.
+High-level modules should Depend on interfaces/abstractions, not concrete classes.
 
