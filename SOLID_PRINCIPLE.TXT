@@ -122,7 +122,7 @@ class Ostrich implements Bird
 }
 
 4. INTERFACE SEGREGATION PRINCIPLE -> CLIENT DO NOT USE UNWANTED METHOD THAT THEY NOT USE.
-
+Keep interfaces small and focused
 BAD EXAMPLE
 
 interface PaymentInterface
