@@ -1,0 +1,5 @@
+Laravel Eloquent is an Object-Relational Mapper (ORM) 
+that lets you interact with your database using an object-oriented syntax instead of writing raw SQL queries.
+In Eloquent, every database table maps directly to a PHP class called a Model,
+which acts as your primary layer for inserting, updating, deleting, and querying records
+
